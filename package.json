@@ -1,0 +1,124 @@
+{
+	"name": "extreme-utils",
+	"displayName": "Extreme Utils",
+	"description": "Adds a bunch of general utilities that I need. Hashing, URL encoding/decoding, eval, etc.",
+	"version": "1.0.0",
+	"publisher": "WalshyDev",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/WalshyDev/extreme-utils.git"
+	},
+	"engines": {
+		"vscode": "^1.50.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extreme-utils.urlEncode",
+		"onCommand:extreme-utils.urlDecode",
+
+		"onCommand:extreme-utils.md5",
+		"onCommand:extreme-utils.sha1",
+		"onCommand:extreme-utils.sha256",
+		"onCommand:extreme-utils.sha384",
+		"onCommand:extreme-utils.sha512",
+	
+		"onCommand:extreme-utils.toBase64",
+		"onCommand:extreme-utils.fromBase64",
+
+		"onCommand:extreme-utils.eval",
+
+		"onCommand:extreme-utils.prettifyJson",
+		"onCommand:extreme-utils.minifyJson"
+	],
+	"main": "./out/src/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extreme-utils.urlEncode",
+				"title": "Extreme Utils: URL Encode"
+			},
+			{
+				"command": "extreme-utils.urlDecode",
+				"title": "Extreme Utils: URL Decode"
+			},
+			{
+				"command": "extreme-utils.urlEncodePart",
+				"title": "Extreme Utils: URL Encode Part"
+			},
+			{
+				"command": "extreme-utils.urlDecodePart",
+				"title": "Extreme Utils: URL Decode Part"
+			},
+
+			{
+				"command": "extreme-utils.md5",
+				"title": "Extreme Utils: MD5"
+			},
+			{
+				"command": "extreme-utils.sha1",
+				"title": "Extreme Utils: SHA-1"
+			},
+			{
+				"command": "extreme-utils.sha256",
+				"title": "Extreme Utils: SHA-256"
+			},
+			{
+				"command": "extreme-utils.sha384",
+				"title": "Extreme Utils: SHA-384"
+			},
+			{
+				"command": "extreme-utils.sha512",
+				"title": "Extreme Utils: SHA-512"
+			},
+
+			{
+				"command": "extreme-utils.toBase64",
+				"title": "Extreme Utils: Encode Base64"
+			},
+			{
+				"command": "extreme-utils.fromBase64",
+				"title": "Extreme Utils: Decode Base64"
+			},
+
+			{
+				"command": "extreme-utils.eval",
+				"title": "Extreme Utils: Eval"
+			},
+
+			{
+				"command": "extreme-utils.prettifyJson",
+				"title": "Extreme Utils: Prettify JSON"
+			},
+			{
+				"command": "extreme-utils.minifyJson",
+				"title": "Extreme Utils: Minify JSON"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc",
+		"watch": "tsc -watch",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/tests/runTest.js",
+		"coverage": "nyc npm run test"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "16.x",
+		"@types/vscode": "^1.50.0",
+		"@typescript-eslint/eslint-plugin": "^5.31.0",
+		"@typescript-eslint/parser": "^5.31.0",
+		"@vscode/test-electron": "^2.1.5",
+		"eslint": "^8.20.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"nyc": "^15.1.0",
+		"typescript": "^4.7.4"
+	}
+}
