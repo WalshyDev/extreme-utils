@@ -2,7 +2,7 @@
 	"name": "extreme-utils",
 	"displayName": "Extreme Utils",
 	"description": "Adds a bunch of general utilities that I need. Hashing, URL encoding/decoding, eval, etc.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "WalshyDev",
 	"license": "MIT",
 	"repository": {
@@ -13,8 +13,13 @@
 		"vscode": "^1.50.0"
 	},
 	"categories": [
+		"Formatters",
 		"Other"
 	],
+	"galleryBanner": {
+		"color": "#FFA500",
+		"theme": "light"
+	},
 	"activationEvents": [
 		"onCommand:extreme-utils.urlEncode",
 		"onCommand:extreme-utils.urlDecode",
@@ -105,7 +110,9 @@
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/tests/runTest.js",
-		"coverage": "nyc npm run test"
+		"coverage": "nyc npm run test",
+		"package": "vsce package",
+		"publish": "npm run package && vsce publish"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.2.0",
