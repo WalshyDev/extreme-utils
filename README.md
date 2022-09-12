@@ -15,7 +15,7 @@ Download here: https://marketplace.visualstudio.com/items?itemName=WalshyDev.ext
 - Base64
 - Eval
   - Run JS code easily
-- Prettify/minify JS
+- Prettify/minify JSON
 
 ## Commands
 * `extreme-utils.urlEncode`

@@ -18,7 +18,12 @@ async function stupidRaceCondition() {
 	// The editing can sometimes cause a race condition so let's just wait 25ms
 	// 
 	// this "thenify" syntax is bad... I can't await and trying to make this work nicely is just not possible.
-	await sleep(25);
+	if (process.env.GITHUB_ACTION) {
+		// GitHub needs a MUCH higher limit... pls fix this hack soon future self
+		await sleep(150);
+	} else {
+		await sleep(25);
+	}
 }
 
 suite('Extension Test Suite', () => {
