@@ -7,7 +7,8 @@ export function evaluate() {
 		return;
 	}
 
-	const output = eval(text);
+	// Indirect eval for esbuild
+	const output = (0, eval)(text);
 	if (output) {
 		replace(output);
 	}

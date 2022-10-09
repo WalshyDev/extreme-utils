@@ -1,4 +1,17 @@
 import * as vscode from 'vscode';
+import { inputboxValdiationToMessage } from './mapping';
+
+export function getSelectedText(): string | null {
+	const editor = vscode.window.activeTextEditor;
+	if (!editor) {
+		return null;
+	}
+	const activeSelection = editor.document.getText(editor.selection);
+	if (activeSelection === '') {
+		return null;
+	}
+	return activeSelection;
+}
 
 export function getText(): string {
 	const editor = vscode.window.activeTextEditor;
@@ -6,12 +19,42 @@ export function getText(): string {
 		return '';
 	}
 
-	const activeSelection = editor.document.getText(editor.selection);
-	if (activeSelection !== '') {
+	const activeSelection = getSelectedText();
+	if (activeSelection !== null) {
 		return activeSelection;
 	}
 
 	return editor.document.getText();
+}
+
+interface SelectionOrInputOptions {
+	title: string;
+	prompt?: string;
+	placeholder?: string;
+	validate: (str: string) => null | vscode.InputBoxValidationMessage;
+}
+
+export async function getSelectionOrInput({ title, prompt, placeholder, validate }: SelectionOrInputOptions): Promise<string | null> {
+	const selectedText = getSelectedText();
+	if (selectedText !== null) {
+		const validation = validate(selectedText);
+
+		if (validation !== null) {
+			inputboxValdiationToMessage(validation);
+			return null;
+		}
+
+		return selectedText;
+	}
+
+	const input = await vscode.window.showInputBox({
+		title,
+		prompt,
+		placeHolder: placeholder,
+		validateInput: validate,
+	});
+
+	return input ? input : null;
 }
 
 export function replace(text: string) {

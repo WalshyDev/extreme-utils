@@ -6,7 +6,6 @@
 		{
 			"type": "npm",
 			"script": "watch",
-			"problemMatcher": "$tsc-watch",
 			"isBackground": true,
 			"presentation": {
 				"reveal": "never"
@@ -14,7 +13,11 @@
 			"group": {
 				"kind": "build",
 				"isDefault": true
-			}
+			},
+			// https://marketplace.visualstudio.com/items?itemName=connor4312.esbuild-problem-matchers
+			"problemMatcher": ["$esbuild-watch"],
+			"label": "npm: watch",
+			"detail": "esbuild --bundle --platform=node --outdir=out --external:vscode --watch src/extension.ts"
 		}
 	]
 }

@@ -365,4 +365,17 @@ suite('Extension Test Suite', () => {
 }`);
 		});
 	});
+
+	describe('JWT', () => {
+		test('verifyJwt - full jwt', async () => {
+			await openFile('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwIiwibmFtZSI6IldhbHNoeSIsImlhdCI6MH0.XU9Mk8gxyDl1rOay-voPhAJQTLaeffYwFBz7GYF11HA');
+			selectAll();
+
+			await runCommand('verifyJwt');
+			await stupidRaceCondition();
+			const text = getText();
+
+			// TODO: Figure out how to nicely debug showXMessage calls
+		});
+	});
 });

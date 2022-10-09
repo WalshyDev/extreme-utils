@@ -4,6 +4,7 @@ import { md5, sha1, sha256, sha384, sha512 } from './commands/hash';
 import { fromBase64, toBase64 } from './commands/encode';
 import { evaluate } from './commands/eval';
 import { minifyJSON, prettifyJSON } from './commands/format';
+import { verify as verifyJwt } from './commands/jwt';
 
 export function activate(ctx: vscode.ExtensionContext) {
 	registerCommand(ctx, 'urlEncode', encode);
@@ -24,6 +25,8 @@ export function activate(ctx: vscode.ExtensionContext) {
 
 	registerCommand(ctx, 'prettifyJson', prettifyJSON);
 	registerCommand(ctx, 'minifyJson', minifyJSON);
+
+	registerCommand(ctx, 'verifyJwt', verifyJwt);
 }
 
 function registerCommand(ctx: vscode.ExtensionContext, cmd: string, func: () => void) {

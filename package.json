@@ -36,9 +36,11 @@
 		"onCommand:extreme-utils.eval",
 
 		"onCommand:extreme-utils.prettifyJson",
-		"onCommand:extreme-utils.minifyJson"
+		"onCommand:extreme-utils.minifyJson",
+
+		"onCommand:extreme-utils.verifyJwt"
 	],
-	"main": "./out/src/extension.js",
+	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
@@ -100,13 +102,20 @@
 			{
 				"command": "extreme-utils.minifyJson",
 				"title": "Extreme Utils: Minify JSON"
+			},
+			{
+				"command": "extreme-utils.verifyJwt",
+				"title": "Extreme Utils: Verify JWT"
 			}
 		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
-		"compile": "tsc",
-		"watch": "tsc -watch",
+		"compile": "esbuild --bundle --platform=node --outdir=out --external:vscode src/extension.ts",
+		"compile:test": "esbuild --bundle --platform=node --outdir=out/tests --external:vscode tests/runTest.ts tests/**/*.ts",
+		"compile_old": "tsc",
+		"watch": "esbuild --bundle --platform=node --outdir=out --external:vscode --watch src/extension.ts",
+		"watch_old": "tsc -watch",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/tests/runTest.js",
@@ -122,10 +131,14 @@
 		"@typescript-eslint/eslint-plugin": "^5.31.0",
 		"@typescript-eslint/parser": "^5.31.0",
 		"@vscode/test-electron": "^2.1.5",
+		"esbuild": "^0.15.7",
 		"eslint": "^8.20.0",
 		"glob": "^8.0.3",
 		"mocha": "^10.0.0",
 		"nyc": "^15.1.0",
 		"typescript": "^4.7.4"
+	},
+	"dependencies": {
+		"jose": "^4.9.2"
 	}
 }
