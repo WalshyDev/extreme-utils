@@ -11,6 +11,7 @@ export function prettifyJSON() {
 		const obj = JSON.parse(text);
 		replace(JSON.stringify(obj, null, 4));
 	} catch(e) {
+		console.error(e);
 		window.showWarningMessage('Invalid JSON!');
 	}
 }
@@ -25,6 +26,7 @@ export function minifyJSON() {
 		const obj = JSON.parse(text);
 		replace(JSON.stringify(obj));
 	} catch(e) {
+		console.error(e);
 		window.showWarningMessage('Invalid JSON!');
 	}
 }

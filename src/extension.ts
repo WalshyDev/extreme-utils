@@ -32,4 +32,7 @@ function registerCommand(ctx: vscode.ExtensionContext, cmd: string, func: () => 
 	ctx.subscriptions.push(vscode.commands.registerCommand(`extreme-utils.${cmd}`, func));
 }
 
-export function deactivate() {}
+export function deactivate() {
+	// Don't need to do anything here
+	return;
+}

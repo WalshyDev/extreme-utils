@@ -9,12 +9,14 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "@typescript-eslint/naming-convention": "warn",
-        "@typescript-eslint/semi": "warn",
-        "curly": "warn",
-        "eqeqeq": "warn",
-        "no-throw-literal": "warn",
-        "semi": "off"
+        "no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+		"@typescript-eslint/no-explicit-any": "error",
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"@typescript-eslint/no-non-null-assertion": "error",
+		"@typescript-eslint/no-empty-function": "error",
+		"@typescript-eslint/no-var-requires": "error",
+		"@typescript-eslint/ban-ts-comment": "error"
     },
     "ignorePatterns": [
         "out",
