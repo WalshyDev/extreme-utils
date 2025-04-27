@@ -13,6 +13,7 @@ Download here: https://marketplace.visualstudio.com/items?itemName=WalshyDev.ext
   - SHA-384
   - SHA-512
 - Base64
+- Hex
 - Eval
   - Run JS code easily
 - Prettify/minify JSON
@@ -40,6 +41,10 @@ Download here: https://marketplace.visualstudio.com/items?itemName=WalshyDev.ext
   * Base64 encode
 * `extreme-utils.fromBase64`
   * Base64 decode
+* `extreme-utils.toHex`
+  * Hex encode
+* `extreme-utils.fromHex`
+  * Hex decode
 * `extreme-utils.eval`
   * Evaluate some JS
 * `extreme-utils.prettifyJson`

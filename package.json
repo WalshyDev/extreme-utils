@@ -2,7 +2,7 @@
 	"name": "extreme-utils",
 	"displayName": "Extreme Utils",
 	"description": "Adds a bunch of general utilities that I need. Hashing, URL encoding/decoding, eval, etc.",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"publisher": "WalshyDev",
 	"license": "MIT",
 	"repository": {
@@ -39,7 +39,6 @@
 				"command": "extreme-utils.urlDecodePart",
 				"title": "Extreme Utils: URL Decode Part"
 			},
-
 			{
 				"command": "extreme-utils.md5",
 				"title": "Extreme Utils: MD5"
@@ -60,7 +59,6 @@
 				"command": "extreme-utils.sha512",
 				"title": "Extreme Utils: SHA-512"
 			},
-
 			{
 				"command": "extreme-utils.toBase64",
 				"title": "Extreme Utils: Encode Base64"
@@ -77,12 +75,10 @@
 				"command": "extreme-utils.fromHex",
 				"title": "Extreme Utils: Decode Hex"
 			},
-
 			{
 				"command": "extreme-utils.eval",
 				"title": "Extreme Utils: Eval"
 			},
-
 			{
 				"command": "extreme-utils.prettifyJson",
 				"title": "Extreme Utils: Prettify JSON"
@@ -104,10 +100,11 @@
 		"@types/glob": "8.1.0",
 		"@types/mocha": "10.0.10",
 		"@types/node": "22.15.2",
-		"@types/vscode": "1.99.1",
+		"@types/vscode": "1.90.0",
 		"@typescript-eslint/eslint-plugin": "8.31.0",
 		"@typescript-eslint/parser": "8.31.0",
 		"@vscode/test-electron": "2.5.2",
+		"@vscode/vsce": "3.3.2",
 		"eslint": "8.57.1",
 		"glob": "11.0.2",
 		"mocha": "11.1.0",
