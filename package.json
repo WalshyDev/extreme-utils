@@ -10,7 +10,7 @@
 		"url": "https://github.com/WalshyDev/extreme-utils.git"
 	},
 	"engines": {
-		"vscode": "^1.50.0"
+		"vscode": "^1.90"
 	},
 	"categories": [
 		"Formatters",
@@ -20,24 +20,6 @@
 		"color": "#FFA500",
 		"theme": "light"
 	},
-	"activationEvents": [
-		"onCommand:extreme-utils.urlEncode",
-		"onCommand:extreme-utils.urlDecode",
-
-		"onCommand:extreme-utils.md5",
-		"onCommand:extreme-utils.sha1",
-		"onCommand:extreme-utils.sha256",
-		"onCommand:extreme-utils.sha384",
-		"onCommand:extreme-utils.sha512",
-	
-		"onCommand:extreme-utils.toBase64",
-		"onCommand:extreme-utils.fromBase64",
-
-		"onCommand:extreme-utils.eval",
-
-		"onCommand:extreme-utils.prettifyJson",
-		"onCommand:extreme-utils.minifyJson"
-	],
 	"main": "./out/src/extension.js",
 	"contributes": {
 		"commands": [
@@ -87,6 +69,14 @@
 				"command": "extreme-utils.fromBase64",
 				"title": "Extreme Utils: Decode Base64"
 			},
+			{
+				"command": "extreme-utils.toHex",
+				"title": "Extreme Utils: Encode Hex"
+			},
+			{
+				"command": "extreme-utils.fromHex",
+				"title": "Extreme Utils: Decode Hex"
+			},
 
 			{
 				"command": "extreme-utils.eval",
@@ -96,10 +86,6 @@
 			{
 				"command": "extreme-utils.prettifyJson",
 				"title": "Extreme Utils: Prettify JSON"
-			},
-			{
-				"command": "extreme-utils.minifyJson",
-				"title": "Extreme Utils: Minify JSON"
 			}
 		]
 	},

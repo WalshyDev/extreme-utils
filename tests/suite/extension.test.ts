@@ -365,4 +365,50 @@ suite('Extension Test Suite', () => {
 }`);
 		});
 	});
+
+	describe('Hex', () => {
+		test('toHex - whole file', async () => {
+			await openFile('hello world');
+			selectAll();
+
+			await runCommand('toHex');
+			await stupidRaceCondition();
+			const text = getText();
+
+			assert.equal(text, '68656c6c6f20776f726c64');
+		});
+
+		test('toHex - part file', async () => {
+			await openFile('hello world, the weather is nice eh?');
+			selectText('weather is nice');
+
+			await runCommand('toHex');
+			await stupidRaceCondition();
+			const text = getText();
+
+			assert.equal(text, '77656174686572206973206e696365');
+		});
+
+		test('fromHex - whole file', async () => {
+			await openFile('68656c6c6f20776f726c64');
+			selectAll();
+
+			await runCommand('fromHex');
+			await stupidRaceCondition();
+			const text = getText();
+
+			assert.equal(text, 'hello world');
+		});
+
+		test('fromHex - part file', async () => {
+			await openFile('{"token": "68656c6c6f20776f726c64"}');
+			selectText('68656c6c6f20776f726c64');
+
+			await runCommand('fromHex');
+			await stupidRaceCondition();
+			const text = getText();
+
+			assert.equal(text, 'hello world');
+		});
+	});
 });

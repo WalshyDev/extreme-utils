@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { encode, encodePart, decode, decodePart } from './commands/url';
 import { md5, sha1, sha256, sha384, sha512 } from './commands/hash';
-import { fromBase64, toBase64 } from './commands/encode';
+import { fromBase64, toBase64, fromHex, toHex } from './commands/encode';
 import { evaluate } from './commands/eval';
 import { minifyJSON, prettifyJSON } from './commands/format';
 
@@ -19,6 +19,8 @@ export function activate(ctx: vscode.ExtensionContext) {
 
 	registerCommand(ctx, 'toBase64', toBase64);
 	registerCommand(ctx, 'fromBase64', fromBase64);
+	registerCommand(ctx, 'toHex', toHex);
+	registerCommand(ctx, 'fromHex', fromHex);
 
 	registerCommand(ctx, 'eval', evaluate);
 
